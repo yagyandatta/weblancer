@@ -121,7 +121,7 @@ export function ContactForm() {
               <div className="flex gap-5">
                 <PhoneIcon className="h-6 w-6 text-white" />
                 <Typography variant="h6" color="white" className="mb-2">
-                  +91 7077432031
+                  +91 7008188277
                 </Typography>
               </div>
               
@@ -207,7 +207,7 @@ export function ContactForm() {
                   type="email"
                   label="Email"
                   name="email"
-                  placeholder="eg. rajesh.kumar@company.com"
+                  placeholder="eg. xyz@company.com"
                   containerProps={{
                     className: "!min-w-full",
                   }}
@@ -221,7 +221,7 @@ export function ContactForm() {
                   type="tel"
                   label="Phone Number"
                   name="phone"
-                  placeholder="eg. +91 98765 43210"
+                  placeholder="eg. +91 99999 99999"
                   containerProps={{
                     className: "!min-w-full",
                   }}

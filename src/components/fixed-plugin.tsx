@@ -3,7 +3,7 @@ import { Button } from "@material-tailwind/react";
 
 export function FixedPlugin() {
   const handleWhatsAppClick = () => {
-    const phoneNumber = "917077432031"; // Replace with your WhatsApp number
+    const phoneNumber = "917008188277"; // Replace with your WhatsApp number
     const message = "Hi, I'm interested in your services!"; // Default message
     
     // Check if it's mobile or desktop

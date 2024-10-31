@@ -12,10 +12,10 @@ const LEADERSHIP_TEAM = [
     role: "Founder & CEO",
     image: "/teams/1.png",
     bio: "Full-stack developer with expertise in building scalable applications.",
-    longBio: "Saurabh is the founder and CEO, bringing over 8 years of experience in software development and team leadership. His expertise in full-stack development and cloud architecture has been instrumental in shaping the company's technical direction and growth strategy.",
+    longBio: "Diptansu is the founder and CEO, bringing over 5 years of experience in software development and team leadership. His expertise in full-stack development and cloud architecture has been instrumental in shaping the company's technical direction and growth strategy.",
     social: {
-      linkedin: "https://www.linkedin.com/in/saurabh-suman/",
-      github: "https://github.com/saurabhsuman47"
+      linkedin: "https://www.linkedin.com/in/diptansu-das-2476b4194/",
+      github: "https://github.com/diptansu-das"
     }
   },
   {
@@ -23,10 +23,10 @@ const LEADERSHIP_TEAM = [
     role: "Co-Founder & CTO",
     image: "/teams/2.png",
     bio: "Backend specialist with deep expertise in system architecture.",
-    longBio: "Shubham leads the technical architecture and innovation initiatives. With extensive experience in backend development and system design, he ensures the scalability and reliability of our solutions.",
+    longBio: "Yagyandatta leads the technical architecture and innovation initiatives. With extensive experience in backend development and system design, he ensures the scalability and reliability of our solutions.",
     social: {
-      linkedin: "#",
-      github: "#"
+      linkedin: "https://www.linkedin.com/in/yagyandatta-murmu/",
+      github: "https://github.com/yagyandatta"
     }
   },
   {
@@ -34,10 +34,10 @@ const LEADERSHIP_TEAM = [
     role: "Technical Lead",
     image: "/teams/3.png",
     bio: "Frontend expert specializing in modern web technologies.",
-    longBio: "Shivam leads the frontend development team, bringing expertise in React and modern web technologies. His focus on user experience and performance has been key to delivering exceptional client solutions.",
+    longBio: "Sangram leads the frontend development team, bringing expertise in React and modern web technologies. His focus on user experience and performance has been key to delivering exceptional client solutions.",
     social: {
-      linkedin: "#",
-      github: "#"
+      linkedin: "https://www.linkedin.com/in/sangram-mohapatra/",
+      github: "https://github.com/sangrammohapatra"
     }
   },
   {
@@ -45,9 +45,9 @@ const LEADERSHIP_TEAM = [
     role: "Senior Developer",
     image: "/teams/4.png",
     bio: "Full-stack developer with focus on cloud solutions.",
-    longBio: "Shashank specializes in full-stack development with particular expertise in cloud technologies. His experience with AWS and Azure has helped streamline our deployment processes and improve system reliability.",
+    longBio: "Sagar specializes in full-stack development with particular expertise in cloud technologies. His experience with AWS and Azure has helped streamline our deployment processes and improve system reliability.",
     social: {
-      linkedin: "#",
+      linkedin: "https://www.linkedin.com/in/p-sagar-kumar-achary/",
       github: "#"
     }
   },
@@ -56,20 +56,9 @@ const LEADERSHIP_TEAM = [
     role: "DevOps Engineer",
     image: "/teams/5.png",
     bio: "Infrastructure and automation specialist.",
-    longBio: "Shubham manages our DevOps processes, ensuring smooth deployments and optimal performance. His expertise in containerization and CI/CD pipelines has significantly improved our development workflow.",
+    longBio: "Chinmaya manages our DevOps processes, ensuring smooth deployments and optimal performance. His expertise in containerization and CI/CD pipelines has significantly improved our development workflow.",
     social: {
-      linkedin: "#",
-      github: "#"
-    }
-  },
-  {
-    name: "Nitish Kumar",
-    role: "UI/UX Designer",
-    image: "/image/avatar1.jpg",
-    bio: "Creative designer focused on user experience.",
-    longBio: "Nitish leads our design initiatives, creating intuitive and engaging user interfaces. His understanding of user behavior and modern design principles helps deliver exceptional user experiences across all our projects.",
-    social: {
-      linkedin: "#",
+      linkedin: "https://www.linkedin.com/in/chinmaya-kumar-sasmal-766314243/",
       github: "#"
     }
   }
@@ -93,7 +82,7 @@ export function LeadershipSection() {
             Meet Our Leadership
           </Typography>
           <Typography variant="lead" className="mx-auto w-full px-4 text-gray-600 lg:w-6/12">
-            With over 20 years of combined experience, we've got a well-seasoned team at the helm.
+            With over 5 years of combined experience, we've got a well-seasoned team at the helm.
           </Typography>
         </motion.div>
 
