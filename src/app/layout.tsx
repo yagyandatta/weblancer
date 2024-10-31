@@ -11,9 +11,9 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: "Next.js + Tailwind Portfolio Page",
+  title: "WebLancers | Strategic Marketing Agency",
   description:
-    "Introducing Tailwind Portfolio Page, a versatile and stylish portfolio template built on the foundation of Tailwind CSS and Material Tailwind.",
+    "Transform your online presence with our data-driven digital marketing strategies. Specializing in SEO.",
 };
 
 export default function RootLayout({
