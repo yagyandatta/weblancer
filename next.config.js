@@ -8,6 +8,7 @@ const nextConfig = {
         hostname: "**",
       },
     ],
+    unoptimized: true
   },
   // Ignore TypeScript errors during development
   typescript: {
