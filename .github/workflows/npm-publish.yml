@@ -13,23 +13,3 @@ jobs:
       # Step 1: Checkout Repository
       - name: Checkout Repository
         uses: actions/checkout@v3
-
-      # Step 2: Install Node.js and Dependencies
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '22'
-
-      - name: Install Dependencies
-        run: npm install
-
-      # Step 3: Build the Next.js App
-      - name: Build App
-        run: npm run build
-
-      # Step 4: Install and Start with PM2
-      - name: Install PM2 and Start App
-        run: |
-          npm install -g pm2
-          pm2 start npm --name "next" -- start
-          pm2 save  # Save the PM2 process list to restart on reboot
