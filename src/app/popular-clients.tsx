@@ -61,7 +61,21 @@ const LEADERSHIP_TEAM = [
       linkedin: "https://www.linkedin.com/in/chinmaya-kumar-sasmal-766314243/",
       github: "#"
     }
+  },
+  {
+    "name": "Sanjeev Murmu",
+    "role": "MERN Developer",
+    "image": "/teams/6.png",
+    "bio": "Full-stack developer specializing in the MERN stack.",
+    "longBio": "Sanjeev is a skilled MERN Developer focused on building responsive and scalable web applications. His expertise in MongoDB, Express, React, and Node.js allows him to deliver high-quality solutions tailored to clients' needs.",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/sanjeev-murmu-4aa231192/",
+      "github": "https://github.com/sanjeevmurmu"
+    }
   }
+  
+
+
 ];
 
 export function LeadershipSection() {

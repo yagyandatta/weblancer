@@ -79,7 +79,7 @@ export function Navbar() {
           className="text-lg font-bold cursor-pointer" 
           onClick={() => window.location.reload()}
         >
-          Weblancer
+          WEBLANCERS
         </Typography>
         <ul className="ml-10 hidden items-center gap-8 lg:flex">
           {NAV_MENU.map(({ name, icon: Icon, href }) => (

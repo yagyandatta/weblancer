@@ -8,24 +8,24 @@ import { StarIcon, ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24
 const TESTIMONIALS = [
   {
     content: "Working with Weblancer has been transformative for our business. Their technical expertise and commitment to delivering high-quality solutions exceeded our expectations. The team's ability to understand our requirements and translate them into powerful digital solutions was impressive.",
-    author: "Michael Anderson",
+    author: "Ravi Sharma",
     position: "CTO, TechCorp Solutions",
     rating: 5,
-    image: "/image/avatar1.jpg"
+    image: "/image/avatar2.jpg"
   },
   {
     content: "The DevOps implementation by Weblancer revolutionized our deployment process. Their team's deep understanding of cloud technologies and automation helped us achieve a 70% reduction in deployment time. They're not just service providers; they're strategic partners.",
-    author: "Sarah Johnson",
+    author: "Vikram Patel",
     position: "Engineering Director, CloudScale",
     rating: 5,
-    image: "/image/avatar1.jpg"
+    image: "/image/avatar3.jpg"
   },
   {
     content: "Exceptional web development expertise! Weblancer delivered a complex e-commerce platform that perfectly aligned with our vision. Their attention to detail and commitment to meeting deadlines made the entire process smooth and efficient.",
-    author: "David Chen",
+    author: "Sagar Menon",
     position: "CEO, Digital Retail Pro",
     rating: 5,
-    image: "/image/avatar1.jpg"
+    image: "/image/avatar4.jpg"
   },
 ];
 
