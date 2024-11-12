@@ -1,18 +1,20 @@
-# This workflow will run tests using node and then publish a package to GitHub Packages when a release is created
-# For more information see: https://docs.github.com/en/actions/publishing-packages/publishing-nodejs-packages
-
-name: Deploy react
+name: Test EC2 Runner with Repo Data
 
 on:
-  workflow_dispatch:  # This allows you to manually trigger the workflow
+  push:
+    branches:
+      - main  # Trigger on push to the main branch
 
 jobs:
   run-commands:
     runs-on: self-hosted  # Specify the self-hosted runner (your EC2 instance)
 
     steps:
-      - name: Run `ls` Command
-        run: ls
+      - name: Checkout Repository
+        uses: actions/checkout@v3  # Clones the repo onto the runner
 
-      - name: Run `pwd` Command
+      - name: List Files in Repo Directory
+        run: ls -la  # List all files in the current directory
+
+      - name: Show Current Directory Path
         run: pwd
