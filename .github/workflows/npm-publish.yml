@@ -1,4 +1,4 @@
-name: Test EC2 Runner with Repo Data
+name: Deploy Next.js App to EC2
 
 on:
   push:
@@ -6,15 +6,41 @@ on:
       - main  # Trigger on push to the main branch
 
 jobs:
-  run-commands:
+  deploy:
     runs-on: self-hosted  # Specify the self-hosted runner (your EC2 instance)
 
     steps:
+      # Step 1: Checkout Repository
       - name: Checkout Repository
-        uses: actions/checkout@v3  # Clones the repo onto the runner
+        uses: actions/checkout@v3
 
-      - name: List Files in Repo Directory
-        run: ls -la  # List all files in the current directory
+      # Step 2: Install Dependencies
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
 
-      - name: Show Current Directory Path
-        run: pwd
+      - name: Install Dependencies
+        run: npm install
+
+      # Step 3: Run Development Server (optional, use only if you want to start dev server during deployment)
+      - name: Run Development Server
+        run: npm run dev
+        if: ${{ github.event_name == 'workflow_dispatch' }}  # Run dev server only on manual dispatch, not on each push
+
+      # Step 4: Build the Next.js App
+      - name: Build App
+        run: npm run build
+
+      # Step 5: Test Nginx Configuration
+      - name: Test Nginx Configuration
+        run: sudo nginx -t
+
+      # Step 6: Install and Configure PM2
+      - name: Install PM2
+        run: npm install -g pm2
+
+      - name: Start Next.js App with PM2
+        run: |
+          pm2 start npm --name "next" -- start
+          pm2 save  # Save the PM2 process list to restart on reboot
