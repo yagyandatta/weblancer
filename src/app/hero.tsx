@@ -2,8 +2,38 @@
 
 import Image from "next/image";
 import { Input, Button, Typography } from "@material-tailwind/react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useState } from "react";
+import emailjs from "emailjs-com";
 
 function Hero() {
+  const [email, setEmail] = useState("");
+
+  const handleButtonClick = () => {
+    if (!email) {
+      toast.error("Please enter your email.");
+    } else {
+      // Send the email using EmailJS
+      emailjs
+        .send(
+          "service_i6nm8dh", 
+          "template_pbk9t8x", 
+          { email },          
+          "zwu_kPHq9r63WvZN5"      
+        )
+        .then(
+          () => {
+            toast.success("We will get back to you shortly!");
+          },
+          (error) => {
+            toast.error("Failed to send email. Please try again.");
+            console.error("EmailJS Error:", error);  
+          }
+        );
+    }
+  };
+
   return (
     <header className="bg-white p-8" id="about">
       <div className="container mx-auto grid h-full gap-10 min-h-[60vh] w-full grid-cols-1 items-center lg:grid-cols-2">
@@ -33,8 +63,18 @@ function Hero() {
             </Typography>
             <div className="mb-2 flex w-full flex-col gap-4 md:w-10/12 md:flex-row">
               {/* @ts-ignore */}
-              <Input color="gray" label="Enter your email" size="lg" />
-              <Button color="gray" className="w-full px-4 md:w-[12rem]">
+              <Input
+                color="gray"
+                label="Enter your email"
+                size="lg"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <Button
+                color="gray"
+                className="w-full px-4 md:w-[12rem]"
+                onClick={handleButtonClick}
+              >
                 Get Started
               </Button>
             </div>
@@ -54,6 +94,7 @@ function Hero() {
           className="h-[36rem] w-full rounded-xl object-cover"
         />
       </div>
+      <ToastContainer />
     </header>
   );
 }

@@ -8,6 +8,7 @@ interface FormData {
   service: string[]; // Explicitly define 'service' as an array of strings
   message: string;
 }
+import emailjs from "emailjs-com";
 
 import {
   Typography as MTTypography,
@@ -142,55 +143,122 @@ export function ContactForm() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
+  
+    // Initialize the errors object
+    let newErrors = {
+      firstName: "",
+      lastName: "",
+      email: "",
+      phone: "",
+      message: "",
+    };
+  
     let hasError = false;
-
+  
+    // Validate fields and populate error state
     for (const field in formData) {
-      // Check if the field is of type string[]
-      const fieldValue = formData[field as keyof FormData];
-
-      if (Array.isArray(fieldValue)) {
-        // If the field is an array (like 'service'), we can skip validation for this specific case,
-        // or validate individual values inside the array.
-        fieldValue.forEach((value) => validateField(field, value)); // Validate each value in the array
+      const value = formData[field as keyof FormData];
+  
+      if (Array.isArray(value)) {
+        value.forEach((service) => {
+          // Validate for services
+          if (value.length === 0) {
+            newErrors.service = "At least one service should be selected";
+            hasError = true;
+          }
+        });
       } else {
-        validateField(field, fieldValue); // Validate the field as a string
+        switch (field) {
+          case "firstName":
+            if (!value.trim()) {
+              newErrors.firstName = "First Name is required";
+              hasError = true;
+            }
+            break;
+          case "lastName":
+            if (!value.trim()) {
+              newErrors.lastName = "Last Name is required";
+              hasError = true;
+            }
+            break;
+          case "email":
+            if (!value.trim()) {
+              newErrors.email = "Email is required";
+              hasError = true;
+            } else if (!/\S+@\S+\.\S+/.test(value)) {
+              newErrors.email = "Email is invalid";
+              hasError = true;
+            }
+            break;
+          case "phone":
+            if (!value.trim()) {
+              newErrors.phone = "Phone number is required";
+              hasError = true;
+            } else if (!/^\+?[0-9\s]+$/.test(value)) {
+              newErrors.phone = "Phone number is invalid";
+              hasError = true;
+            }
+            break;
+          case "message":
+            if (!value.trim()) {
+              newErrors.message = "Message is required";
+              hasError = true;
+            }
+            break;
+        }
       }
-
-      // Check for errors
-      if (formErrors[field as keyof typeof formErrors]) hasError = true;
     }
-
+  
+    
+    setformErrors(newErrors);
+  
+    
     if (hasError) {
-      toast.error("Please check the errors and Submit again !!");
-      return;
+      toast.error("Please check the errors and submit again!");
+      return; 
     }
-
+  
     setIsSubmitting(true);
-
+    setSubmitSuccess(false);
+  
     try {
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-      console.log(formData);
-      setSubmitSuccess(true);
-      toast.success(
-        "Thank you for reaching out! We'll get back to you shortly."
+      const response = await emailjs.send(
+        "service_f74zadp", 
+        "template_m8oqjqv", 
+        {
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          email: formData.email,
+          phone: formData.phone,
+          service: formData.service.join(", "),
+          message: formData.message,
+        },
+        "Czqcu0sihaPql6rvc"
       );
-      // Reset form
-      setFormData({
-        firstName: "",
-        lastName: "",
-        email: "",
-        phone: "",
-        service: [],
-        message: "",
-      });
+  
+      if (response.status === 200) {
+        setSubmitSuccess(true);
+        toast.success("Thank you for reaching out! We'll get back to you shortly.");
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          service: [],
+          message: "",
+        });
+      } else {
+        throw new Error("Failed to send message.");
+      }
     } catch (error) {
       console.error("Error submitting form:", error);
+      toast.error("Failed to send message. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
   };
+  
+  
 
   return (
     <section id="contact" className="px-8 py-24">
@@ -239,7 +307,7 @@ export function ContactForm() {
               <div className="flex my-4 gap-5">
                 <EnvelopeIcon className="h-6 w-6 text-white" />
                 <Typography variant="h6" color="white" className="mb-2">
-                  weblancer@gmail.com
+                  contact.weblancers@gmail.com
                 </Typography>
               </div>
 
