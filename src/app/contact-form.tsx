@@ -47,7 +47,7 @@ const Radio = MTRadio as unknown as React.FC<{
   label?: string;
   defaultChecked?: boolean;
   checked?: boolean; // Add the checked prop
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void; // Add onChange handler
+  onClick?: (event: React.MouseEvent<HTMLInputElement>) => void; 
   crossOrigin?: any;
   onPointerEnterCapture?: () => void;
   onPointerLeaveCapture?: () => void;
@@ -133,11 +133,12 @@ export function ContactForm() {
 
   const handleServiceChange = (service: string) => {
     setFormData((prevData) => {
+      console.log(prevData.service.includes(service))
       const services = prevData.service.includes(service)
         ? prevData.service.filter((s: string) => s !== service)
         : [...prevData.service, service];
 
-      return { ...prevData, service: services }; // Correct key should be `service` (not `services`)
+      return { ...prevData,service:services}; 
     });
   };
 
@@ -151,6 +152,7 @@ export function ContactForm() {
       email: "",
       phone: "",
       message: "",
+      service:""
     };
   
     let hasError = false;
@@ -438,7 +440,7 @@ export function ContactForm() {
                           label={service}
                           color="gray"
                           checked={formData.service.includes(service)} // This checks if the service is in the selected array
-                          onChange={() => handleServiceChange(service)} // Update on change
+                          onClick={()=>handleServiceChange(service)} // Update on change
                         />
                       </div>
                     ))}

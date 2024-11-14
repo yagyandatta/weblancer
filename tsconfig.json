@@ -28,14 +28,19 @@
       ]
     },
     "forceConsistentCasingInFileNames": true,
-    "typeRoots": ["./node_modules/@types", "./src/types"]
+    "typeRoots": [
+      "./node_modules/@types",
+      "./src/types"
+    ]
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts"
-, "src/components/.fixed-plugin.tsx"  ],
+    ".next/types/**/*.ts",
+    "src/components/.fixed-plugin.tsx",
+    "build/types/**/*.ts"
+  ],
   "exclude": [
     "node_modules"
   ]
