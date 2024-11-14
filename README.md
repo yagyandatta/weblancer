@@ -2,9 +2,7 @@
 
 ![version](https://img.shields.io/badge/version-1.0.0-blue.svg)
 
-A modern, responsive web development agency portfolio built with Next.js and Tailwind CSS.
-
-![Weblancer Preview](public/image/hero.png)
+![Weblancer Preview](public/image/image.png)
 
 ## Overview
 
