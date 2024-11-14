@@ -133,7 +133,7 @@ export function ContactForm() {
 
   const handleServiceChange = (service: string) => {
     setFormData((prevData) => {
-      console.log(prevData.service.includes(service))
+      // console.log(prevData.service.includes(service))
       const services = prevData.service.includes(service)
         ? prevData.service.filter((s: string) => s !== service)
         : [...prevData.service, service];
