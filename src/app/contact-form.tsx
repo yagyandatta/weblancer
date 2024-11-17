@@ -225,8 +225,8 @@ export function ContactForm() {
   
     try {
       const response = await emailjs.send(
-        "service_f74zadp", 
-        "template_m8oqjqv", 
+        "service_i6nm8dh", 
+        "template_22nrtio", 
         {
           firstName: formData.firstName,
           lastName: formData.lastName,
@@ -235,7 +235,7 @@ export function ContactForm() {
           service: formData.service.join(", "),
           message: formData.message,
         },
-        "Czqcu0sihaPql6rvc"
+        "zwu_kPHq9r63WvZN5"
       );
   
       if (response.status === 200) {

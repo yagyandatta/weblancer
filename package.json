@@ -12,7 +12,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@heroicons/react": "2.0.18",
+    "@heroicons/react": "^2.1.5",
     "@material-tailwind/react": "^2.1.10",
     "@types/nodemailer": "^6.4.16",
     "emailjs-com": "^3.2.0",
